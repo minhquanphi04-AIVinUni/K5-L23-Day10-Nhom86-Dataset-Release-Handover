@@ -1,0 +1,74 @@
+{
+ "candidates": [
+  {
+   "image": "000000000872",
+   "type": "missing_box",
+   "note": "seg person area=47692"
+  },
+  {
+   "image": "000000001818",
+   "type": "missing_box",
+   "note": "seg zebra area=120106"
+  },
+  {
+   "image": "000000004395",
+   "type": "missing_box",
+   "note": "seg person area=174729"
+  },
+  {
+   "image": "000000011197",
+   "type": "bbox_drift",
+   "note": "car inside=0.81 iou=0.22"
+  },
+  {
+   "image": "000000012748",
+   "type": "missing_box",
+   "note": "seg person area=56935"
+  },
+  {
+   "image": "000000013546",
+   "type": "bbox_drift",
+   "note": "skateboard inside=0.73 iou=0.79"
+  },
+  {
+   "image": "000000013729",
+   "type": "bbox_drift",
+   "note": "remote inside=0.77 iou=0.84"
+  },
+  {
+   "image": "000000015440",
+   "type": "class_swap|category_swap",
+   "note": "det=bus pan=truck iou=0.97"
+  },
+  {
+   "image": "000000015517",
+   "type": "bbox_drift",
+   "note": "bus inside=0.79 iou=0.95"
+  },
+  {
+   "image": "000000019402",
+   "type": "bbox_drift",
+   "note": "person inside=0.57 iou=0.50"
+  },
+  {
+   "image": "000000022705",
+   "type": "bbox_drift",
+   "note": "refrigerator inside=0.68 iou=0.60"
+  },
+  {
+   "image": "000000022935",
+   "type": "instance_merge",
+   "note": "person chia 2 box cung lop"
+  },
+  {
+   "image": "000000024021",
+   "type": "class_swap|category_swap",
+   "note": "det=spoon pan=person iou=0.95"
+  },
+  {
+   "image": "000000025393",
+   "type": "class_swap|category_swap",
+   "note": "det=fire hydrant pan=person iou=1.00"
+  }
+ ]
+}
