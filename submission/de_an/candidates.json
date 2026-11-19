@@ -1,0 +1,54 @@
+{
+ "candidates": [
+  {
+   "image": "img_0003",
+   "type": "missing_box",
+   "note": "seg giraffe area=10332"
+  },
+  {
+   "image": "img_0032",
+   "type": "bbox_drift",
+   "note": "traffic light inside=0.74 iou=0.84"
+  },
+  {
+   "image": "img_0043",
+   "type": "missing_box",
+   "note": "seg zebra area=5728"
+  },
+  {
+   "image": "img_0065",
+   "type": "class_swap|category_swap",
+   "note": "det=person pan=tennis racket iou=1.00"
+  },
+  {
+   "image": "img_0073",
+   "type": "class_swap|category_swap",
+   "note": "det=cat pan=airplane iou=1.00"
+  },
+  {
+   "image": "img_0076",
+   "type": "bbox_drift",
+   "note": "car inside=0.75 iou=0.76"
+  },
+  {
+   "image": "img_0108",
+   "type": "class_swap|category_swap",
+   "note": "det=car pan=truck iou=0.99"
+  },
+  {
+   "image": "img_0110",
+   "type": "class_swap|category_swap",
+   "note": "det=bench pan=chair iou=0.99"
+  },
+  {
+   "image": "img_0120",
+   "type": "bbox_drift",
+   "note": "kite inside=0.80 iou=0.83"
+  },
+  {
+   "image": "img_0226",
+   "type": "bbox_drift",
+   "note": "cat inside=0.66 iou=0.51"
+  }
+ ]
+}

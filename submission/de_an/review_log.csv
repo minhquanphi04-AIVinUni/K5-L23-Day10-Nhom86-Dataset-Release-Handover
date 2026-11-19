@@ -1,0 +1,11 @@
+image,type,verdict,note
+img_0003,missing_box,confirmed,"2 hươu cao cổ trong panoptic; detection chỉ có box con lớn bên trái, con nhỏ phía sau bên phải không có box"
+img_0032,bbox_drift,rejected,"đèn giao thông và xe nhỏ ở xa bị xe và cây che, vật rất nhỏ nên box lệch nhẹ so với mask, chưa thấy sai rõ ràng"
+img_0043,missing_box,confirmed,"nhiều ngựa vằn trong panoptic; con ngựa vằn nhỏ phía sau bên trái không có box detection"
+img_0065,category_swap,confirmed,"ảnh một phụ nữ áo trắng; detection ghi person đúng, còn segment panoptic của người này bị ghi tennis racket"
+img_0073,class_swap,confirmed,"ảnh một máy bay lớn trên sân bay; box detection bao cả máy bay bị ghi cat, panoptic ghi airplane đúng"
+img_0076,bbox_drift,rejected,"hai xe tải lớn rõ ràng khớp box; các xe nhỏ ở xa bên trái bị che nên box và mask lệch nhẹ, nhãn hợp lý"
+img_0108,category_swap,confirmed,"xe hơi nhỏ màu đỏ bên trái; box detection ghi car đúng, còn segment panoptic ghi truck sai"
+img_0110,class_swap,confirmed,"ghế học sinh cạnh em bé bên trái lớp học; box detection ghi bench, panoptic ghi chair đúng hơn"
+img_0120,bbox_drift,rejected,"diều và người lướt ván khớp box với mask; chênh nhẹ do vật nhỏ và dây diều, nhãn hợp lý"
+img_0226,bbox_drift,confirmed,"mèo con nhỏ nằm trên gối phía sau; box detection chỉ phủ một phần, phần đuôi và thân bên phải nằm ngoài box"
