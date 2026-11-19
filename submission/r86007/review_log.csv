@@ -11,5 +11,5 @@ image,type,verdict,note
 000000022935,instance_merge,rejected,"panoptic có 2 người tách riêng (áo xanh và áo vàng), detection cũng 2 box; không có hai người bị gộp thành một segment"
 000000025393,class_swap,confirmed,"người đàn ông mặc vest đen bên phải; detection ghi fire hydrant còn panoptic ghi person đúng"
 000000015440,category_swap,confirmed,"xe nhỏ bên trái giống xe buýt điện; detection ghi bus đúng còn panoptic ghi truck"
-000000013729,bbox_drift,confirmed, "box remote đều trải rộng từ tay anh áo xanh đến tay chị váy trắng, segment thì ko đánh remote anh áo xanh; cần phóng to rồi quyết"
+000000013729,bbox_drift,confirmed,"box detection bao từ tay người áo xanh sang tay người váy trắng và che một mảng dài; panoptic không đánh remote ở tay người áo xanh, hai nguồn không cùng vật"
 000000024021,class_swap,confirmed,"ảnh tập thể học sinh; box detection ghi spoon nhưng vật trong box là một cậu bé ngồi xếp bằng khoanh tay đeo cà vạt sọc ở hàng trước; panoptic ghi person đúng"
