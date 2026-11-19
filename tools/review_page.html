@@ -1,0 +1,59 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xem ảnh nhóm 86</title>
+<style>
+:root{--bg:#f6f7fb;--fg:#14213d;--card:#fff;--bd:#d5d9e6;--ac:#2a5bd7}
+@media (prefers-color-scheme:dark){:root{--bg:#10141f;--fg:#e8ecf7;--card:#1a2030;--bd:#2e3650;--ac:#7aa2ff}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px;margin:14px 0}
+img{max-width:100%;border-radius:6px}
+h1{font-size:20px;margin:6px 0}code{background:var(--bd);padding:1px 5px;border-radius:4px}
+label{margin-right:14px;white-space:nowrap}
+textarea{width:100%;box-sizing:border-box;min-height:56px;background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:6px;padding:6px;font:inherit}
+select{background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:6px;padding:4px}
+button{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:10px 18px;font:inherit;cursor:pointer}
+.bar{position:sticky;top:0;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--bd);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.warn{color:#d1342f;font-size:13px}
+</style></head><body><main>
+<h1>Xem ảnh nhóm 86: <b>__NAME__</b> (<span id="cnt"></span> ảnh)</h1>
+<div class="card">
+<b>Cách làm (khoảng 5 phút):</b>
+<ol>
+<li>Mỗi ảnh có hai nửa: <b>trái</b> = box detection (đỏ, ghi tên lớp), <b>phải</b> = segment panoptic (tô màu, ghi tên lớp).</li>
+<li>Nhìn xem hai bên có khớp nhau không rồi chọn: <b>Không thấy lỗi</b>, <b>Có lỗi</b> (thiếu box, box lệch, gán sai lớp, gộp 2 vật), hoặc <b>Lệch tự nhiên</b> (vật bị che, box vẫn đúng).</li>
+<li>Nếu chọn Có lỗi hoặc Lệch tự nhiên: chọn loại lỗi và <b>viết ghi chú bằng lời của bạn</b>, nói thấy gì (ít nhất 20 ký tự).</li>
+<li>Bấm <b>Tải CSV</b> ở cuối trang, chép file vào <code>submission/r86007/</code> rồi commit bằng tài khoản của bạn.</li>
+</ol>
+<span class="warn">Chỉ ghi điều bạn tự thấy trong ảnh. Bài tự lưu trong trình duyệt, đóng trang mở lại vẫn còn.</span>
+</div>
+<div id="list"></div>
+<div class="bar"><span id="prog"></span><button id="dl">Tải CSV</button></div>
+</main>
+<script>
+const KEY="__KEY__",NAME="__NAME__",ITEMS=__ITEMS__;
+const TYPES=["missing_box","bbox_drift","class_swap","category_swap","instance_merge"];
+const LS="r86007_"+KEY;let S={};try{S=JSON.parse(localStorage.getItem(LS)||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}};
+document.getElementById("cnt").textContent=ITEMS.length;const L=document.getElementById("list");
+ITEMS.forEach((it,i)=>{const s=S[it.image]||(S[it.image]={v:"",t:"missing_box",n:""});
+const d=document.createElement("div");d.className="card";
+d.innerHTML=`<b>${i+1}/${ITEMS.length} · ${it.image}</b><br><img src="${it.src}" alt="${it.image}"><div style="margin-top:8px">
+<label><input type="radio" name="v${i}" value="ok"> Không thấy lỗi</label>
+<label><input type="radio" name="v${i}" value="confirmed"> Có lỗi</label>
+<label><input type="radio" name="v${i}" value="rejected"> Lệch tự nhiên</label>
+<select>${TYPES.map(t=>`<option>${t}</option>`).join("")}</select></div>
+<textarea placeholder="Ghi chú: bạn thấy gì trong ảnh? (bắt buộc nếu chọn Có lỗi hoặc Lệch tự nhiên)"></textarea>`;
+const r=d.querySelectorAll("input"),sel=d.querySelector("select"),ta=d.querySelector("textarea");
+r.forEach(x=>{x.checked=x.value===s.v;x.onchange=()=>{s.v=x.value;save();upd()}});
+sel.value=s.t;sel.onchange=()=>{s.t=sel.value;save()};ta.value=s.n;ta.oninput=()=>{s.n=ta.value;save()};L.appendChild(d)});
+function upd(){const n=ITEMS.filter(i=>S[i.image].v).length;document.getElementById("prog").textContent=`Đã xem ${n}/${ITEMS.length}`}
+upd();
+document.getElementById("dl").onclick=()=>{
+const bad=ITEMS.filter(i=>{const s=S[i.image];return !s.v||(s.v!=="ok"&&s.n.trim().length<20)});
+if(bad.length){alert("Còn "+bad.length+" ảnh chưa chọn hoặc ghi chú dưới 20 ký tự:\n"+bad.map(b=>b.image).join("\n"));return}
+const q=x=>'"'+String(x).replace(/"/g,'""')+'"';
+const rows=["image,type,verdict,note"].concat(ITEMS.map(i=>{const s=S[i.image];
+return [i.image,s.v==="ok"?"none":s.t,s.v,q(s.v==="ok"?(s.n.trim()||"không thấy lỗi, box và segment khớp nhau"):s.n.trim())].join(",")}));
+const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+rows.join("\n")+"\n"],{type:"text/csv"}));
+a.download="review_extra_"+KEY+".csv";a.click()};
+</script></body></html>
