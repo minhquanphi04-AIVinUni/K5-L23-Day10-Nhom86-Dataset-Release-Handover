@@ -1,0 +1,6 @@
+﻿image,type,verdict,note
+000000001000,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000002261,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000017178,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000019786,class_swap,confirmed,"phần nhỏ đó không thể xác định rõ nó là remote nên không cần gán nhãn"
+000000025228,none,ok,"không thấy lỗi, box và segment khớp nhau"
