@@ -1,0 +1,6 @@
+﻿image,type,verdict,note
+000000001675,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000007278,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000015335,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000022192,category_swap,confirmed,"segment tô thừa các vật ở trên bed nhưng không phải là bed."
+000000023230,none,ok,"không thấy lỗi, box và segment khớp nhau"
