@@ -1,0 +1,6 @@
+﻿image,type,verdict,note
+000000001993,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000003934,class_swap,confirmed,"box ở xa nhất là ảnh không phải person"
+000000007088,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000023359,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000025096,category_swap,confirmed,"dinner chair bị thiếu box ảnh bên phải và bàn tô bị thiếu"
