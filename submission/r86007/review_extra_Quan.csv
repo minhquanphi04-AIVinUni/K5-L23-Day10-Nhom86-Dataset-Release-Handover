@@ -1,0 +1,6 @@
+﻿image,type,verdict,note
+000000002685,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000008629,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000009772,none,ok,"không thấy lỗi, box và segment khớp nhau"
+000000013004,instance_merge,confirmed,"segment panoptic gán đĩa gộp với bàn"
+000000015746,none,ok,"không thấy lỗi, box và segment khớp nhau"
